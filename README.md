@@ -48,3 +48,6 @@ set a string mess
   NoJine.init(options);
   NoJine.notify();
 ```
+## Options
+for now, the documentation is not finished but the demo covers a everything ...
+Sorry in advance
