@@ -4,8 +4,20 @@
 A kind Notification Engine
 
 ## How to use it ?
-1. download the demo folder
-2. run it in your favorite local server
+1. Download the demo folder
+2. Run it in your favorite local server
+
+In case you want to edit it, instal node packages and run npm command watch to allow browsersync to hot reload on changes. 
+```
+$ npm i -D
+$ npm run watch
+```
+To get the hot reload in real time, make sure that you browse the browsersync server by localhost:3000/NoJine/demo/public address
+
+br
+
+### CodePen
+https://codepen.io/manuusepen/pen/orJoGw
 
 ## How to configure ?
 Here is an exemple inspired from the demo showcase.js in demo/public/assets/js. As shown bellow, create an object that stores options then pass these options to the NoJine init function
@@ -49,5 +61,5 @@ set a string mess
   NoJine.notify();
 ```
 ## Options
-for now, the documentation is not finished but the demo covers a everything ...
+For now, the documentation is not finished but the demo covers a everything ...
 Sorry in advance
