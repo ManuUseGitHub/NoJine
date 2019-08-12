@@ -1,0 +1,64 @@
+
+<div class="light" id="passingOnAllPage"></div>
+<div id="onHead"></div>
+<div id="onBottom50vh"></div>
+<div id="onHalfScreenLeft"></div>
+<div class="Aligner">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="pannel">
+        <label id="from"> <i class="fas fa-chevron-right"> </i>From direction</label><br/>
+        <label id="to"><i class="fas fa-chevron-right"> </i>To direction</label><br/>
+        <div class="directions">
+          <cardinalselector></cardinalselector>
+        </div>
+      </div>
+      <div class="pannel">
+        <label>Movement flavour</label><br/>
+        <input id="same" type="radio" value="same" name="fading"/>
+        <label class="choice" for="same">To the same origin </label><br/>
+        <input id="opposite" type="radio" value="opposite" name="fading" checked="checked"/>
+        <label class="choice" for="opposite">To opposite direction </label><br/>
+        <input id="plusclock" type="radio" value="clock" name="fading"/>
+        <label class="choice" for="plusclock">To +90 degrees (clockwize)</label><br/>
+        <input id="lessclock" type="radio" value="non-clock" name="fading"/>
+        <label class="choice" for="lessclock">To -90 degrees (non-clockwize)    </label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pannel">
+        <label for="inpMessage">Message</label><br/>
+        <input id="inpMessage" placeholder="Hello world !" value="U r Th BST !"/><br/><br/>
+        <label>Mode</label><br/>
+        <input id="passing" type="radio" value="passing" name="mode"/>
+        <label class="choice" for="passing">Passing </label><br/>
+        <input id="focused" type="radio" value="focused" checked="checked" name="mode"/>
+        <label class="choice" for="focused">Focused (simple) </label><br/>
+        <input id="modal" type="radio" value="modal" name="mode"/>
+        <label class="choice" for="modal">Modal </label><br/>
+        <textarea id="description" placeholder="type a description (or even html)"></textarea>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="pannel">
+        <label>Application</label>
+        <button class="notifier btn btn-info" data-cibling="passingOnAllPage">notify on all page</button>
+        <button class="notifier btn btn-info" data-cibling="inThePannel">notify in the pannel below</button>
+        <button class="notifier btn btn-info" data-cibling="onHead">notify on top</button>
+        <button class="notifier btn btn-info" data-cibling="onBottom50vh">notify in the bottom</button>
+        <button class="notifier btn btn-info" data-cibling="onHalfScreenLeft">notify in half the screen on left</button>
+      </div>
+      <div class="pannel" id="messageThread">
+        <label>A pannel</label>
+        <div class="Aligner" id="logoInPannel">
+          <div class="aligner-item">
+            <h1>Hello NoJine</h1><br/><img src="images/logo.svg.png"/><br/><br/><br/>
+            <h6>by the way NoJine stands for notification engine but with a jay (I was running out of ideas ;)) </h6><br/>
+            <h6>and yes it's an open library</h6>
+          </div>
+        </div>
+        <div id="inThePannel"></div>
+      </div>
+    </div>
+  </div>
+</div>

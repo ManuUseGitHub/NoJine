@@ -1,0 +1,340 @@
+fading-color = salmon //
+
+.row
+  width: 100%;
+
+.overlayAll
+  position absolute
+  top 0
+  bottom 0
+  right 0
+  left 0
+
+body > .displayed .notifOverlay
+  position fixed !important
+
+.notifOverlay   
+  color white
+  background rgba(0,0,0,0.7)
+  opacity 0
+  overflow hidden
+  z-index 999
+  max-height 0vh
+  transition opacity 0.5s ease-in-out !important
+  
+.dialog
+  
+    &.from-top
+      top 0
+      transform translate(-50%, -100%)
+      
+    &.from-bottom
+      top 100%
+      transform translate(-50%, 100%)
+      
+    &.from-right
+      left 100%
+      transform translate(0%, -50%)
+      
+    &.from-left
+      left 0%
+      width max-content
+      transform translate(-100%, -50%)
+      
+    button
+      width auto
+      border 1px solid currentColor !important
+      background none
+      color inherit
+      
+    &.simple 
+      
+      .message
+        margin-left 2em
+        
+      .exitButton
+        transition all 0.5s cubic-bezier(.6,0,.6,0)
+        position absolute
+        top 0
+        left 0
+        bottom 0
+        padding 0 30px
+        vertical-align middle
+        
+        font-size 1.5em
+        border-right 2px solid rgba(200,200,200,0.3)
+        
+        i
+          position absolute
+          top 50%
+          transform translate(-50%, -50%)
+          left 50%
+ 
+.revealed .dialog
+  width max-content
+  top 50%
+  left 50%
+  
+  &.simple .exitButton
+    transition all 1s cubic-bezier(.6,0,.6,0)
+    opacity 1
+    
+    i
+      transition all 2s cubic-bezier(.79,-0.74,.25,1.84)
+      
+    &:hover 
+      transition all 0.5s cubic-bezier(.6,0,.6,0)
+      opacity 1
+      color red
+      background rgba(255,0,0,.2)
+      border-right-color red
+      
+      i
+        transition all 1s cubic-bezier(.79,-0.74,.25,1.84)
+        transform translate(-50%, -50%) rotate(180deg) scale(1.5)
+      
+.displayed
+  
+  .notifOverlay
+    max-height 100vh
+    
+    .dialog
+      opacity 0
+      
+      &.simple 
+        border none
+        
+        .exitButton
+          opacity 0
+
+.revealed
+  
+  .notifOverlay
+    opacity 1
+    
+    .dialog
+      opacity 1
+      transition all 1s cubic-bezier(0,.5,.25,1)
+      position absolute
+      left 50%
+      transform translate(-50%, -50%)
+      
+      &.simple 
+        
+        .exitButton
+          opacity 1
+          
+.passing
+  
+  .notifOverlay
+    
+    .dialog
+      transition: all 1s cubic-bezier(.6,0,.6,0)
+      opacity 0
+      
+      &.to-bottom
+        top 100%
+        
+      &.to-top
+        top -10%
+        
+      &.to-right
+        left 100%
+        transform translate(0%, -50%)
+        
+      &.to-left
+        left 0%
+        transform translate(-100%, -50%)
+
+button
+  width 100%
+  margin 15px 0
+  
+.Aligner
+  display flex
+  align-items center
+  justify-content center
+
+.Aligner-item
+  max-width 50%
+
+
+.Aligner-item--top
+  align-self flex-start
+
+
+.Aligner-item--bottom
+  align-self flex-end
+
+label.choice
+  font-size 25px
+  
+  &:before
+    font-family "Font Awesome 5 Free" 
+    content "\f111"
+    margin-right 5px
+  
+input[type='radio']
+  display none
+  
+  &:checked + label
+    color #17a2b8
+    
+    &:before
+      content "\f192"
+  
+.directions 
+  text-align center
+  
+  input[type='radio']
+    display none
+    
+    &:checked +button
+      background #17a2b8
+      border-color #17a2b8
+      color white
+      
+      &.nextDirection
+        box-shadow 0 0 10px cyan
+        color cyan
+        
+  label:before
+    display none
+  
+  button
+    height 2em
+    width 2em
+    padding 0
+    margin 5px
+    line-height 2em
+    
+    text-align center
+    vertical-align middle
+    
+    border 1px solid rgba(0,0,0,0.05)
+    
+    *
+      cursor pointer
+      
+    &:hover 
+      box-shadow none
+    
+    &.dcell
+      display inline-block
+    
+    &.dx
+      opacity 0
+      
+    amplitudes = (-135 -90 -45 45 90 135 180)
+    classes = ('dtl' 'dt' 'dtr' 'dbr' 'db' 'dbl' 'dl')
+    for j in (0..6)
+      &.{classes[j]} i
+        transform rotate(unit(amplitudes[j],deg))
+    &.nextDirection
+      background fading-color
+      color white
+        
+textarea
+  width 100%
+  
+* .pannel:first-child
+  margin-top 1em
+    
+.pannel
+  background #efefef
+  padding 1em
+  border-radius 5px
+  margin-bottom 1em
+  
+  &#messageThread
+    position relative
+    height 50vh
+  *
+    transition all 0.5s ease-in-out
+ 
+#logoInPannel
+  text-align center
+  position absolute
+  bottom 15px
+  top 3em
+  right 15px
+  left 15px
+  border 1px dashed salmon
+  padding 0 15px
+  img 
+    max-width 40%
+
+// OVERLAYS -----------------------------------------------------------    
+#onHead .notifOverlay  
+  height 50px
+  bottom unset
+  
+#onBottom50vh .notifOverlay  
+  height 50vh
+  top unset
+  
+#onHalfScreenLeft .notifOverlay
+  width 50%
+  right unset
+
+// THEMES -----------------------------------------------------------
+// Default style
+.notifOverlay   
+  color white
+  background rgba(0,0,0,0.7)
+  
+  .dialog
+    border 2px solid currentColor
+    border-radius 3px
+    padding 15px
+    max-width 90%
+    
+    .button-group
+      text-align center
+      
+      button
+        border none
+        box-shadow inherit
+        
+      span.separation
+        margin 0 10%
+        border 1px solid currentcolor
+        opacity 0.1
+    
+.light   
+  
+  .notifOverlay 
+    color grey
+    background rgba(255,255,255,0.7)
+
+    .dialog
+      background white
+      border none
+      box-shadow 1px 1px 5px rgba(0,0,0,0.2)
+      
+      button
+        border none
+        box-shadow inherit
+
+#from 
+  color #17a2b8
+  i
+    background #17a2b8
+#to
+  color fading-color
+  i
+    background fading-color
+#from, #to
+  line-height 2em
+  vertical-align middle
+  i
+    vertical-align middle
+    font-size 1em
+    padding-top 0.5em
+    border-radius 5px
+    color white
+    text-align center
+    display inline-block
+    width 2em
+    height 2em
+    margin-right 0.5em

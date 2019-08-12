@@ -1,0 +1,81 @@
+div#passingOnAllPage.light
+div#onHead
+div#onBottom50vh
+div#onHalfScreenLeft
+
+div.Aligner
+  div.row
+    div.col-sm-4
+      div.pannel
+        label#from 
+          i.fas.fa-chevron-right  
+          |From direction
+        br
+        label#to
+          i.fas.fa-chevron-right  
+          |To direction
+        br
+        div.directions
+          cardinalselector
+      div.pannel
+        label Movement flavour
+        br
+        input#same(type='radio',value='same',name='fading')
+        label.choice(for='same') To the same origin 
+        br
+        input#opposite(type='radio',value='opposite',name='fading',checked)
+        label.choice(for='opposite') To opposite direction 
+        br
+        input#plusclock(type='radio',value='clock',name='fading')
+        label.choice(for='plusclock') To +90 degrees (clockwize)
+        br
+        input#lessclock(type='radio',value='non-clock',name='fading')
+        label.choice(for='lessclock') To -90 degrees (non-clockwize)    
+    div.col-sm-4
+      div.pannel
+        label(for='inpMessage') Message
+        br
+        input#inpMessage(placeholder='Hello world !', value='U r Th BST !')
+        br
+        br
+        label Mode
+        br
+        input#passing(type='radio',value='passing',name='mode')
+        label.choice(for='passing') Passing 
+        br
+        input#focused(type='radio',value='focused',checked,name='mode')
+        label.choice(for='focused') Focused (simple) 
+        br
+        input#modal(type='radio',value='modal',name='mode')
+        label.choice(for='modal') Modal 
+        br
+        textarea#description(placeholder='type a description (or even html)')
+      
+    div.col-sm-4
+      div.pannel
+        label Application
+        button.notifier.btn.btn-info(data-cibling='passingOnAllPage') notify on all page
+        
+        button.notifier.btn.btn-info(data-cibling='inThePannel') notify in the pannel below
+        
+        button.notifier.btn.btn-info(data-cibling='onHead') notify on top
+        
+        button.notifier.btn.btn-info(data-cibling='onBottom50vh') notify in the bottom
+        
+        button.notifier.btn.btn-info(data-cibling='onHalfScreenLeft') notify in half the screen on left
+      
+      div#messageThread.pannel
+        label A pannel
+        div#logoInPannel.Aligner
+            div.aligner-item
+                h1 Hello NoJine
+                br
+                img(src="images/logo.svg.png")
+                br 
+                br 
+                br
+                h6 by the way NoJine stands for notification engine but with a jay (I was running out of ideas ;)) 
+                br 
+                h6 and yes it's an open library
+        div#inThePannel
+        
