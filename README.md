@@ -14,8 +14,6 @@ $ npm run watch
 ```
 To get the hot reload in real time, make sure that you browse the browsersync server by localhost:3000/NoJine/demo/public address
 
-br
-
 ### CodePen
 https://codepen.io/manuusepen/pen/orJoGw
 
