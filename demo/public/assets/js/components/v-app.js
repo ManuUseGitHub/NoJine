@@ -455,15 +455,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/styl/themes.styl":
+/*!*******************************************!*\
+  !*** ./resources/assets/styl/themes.styl ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!************************************************************************************!*\
-  !*** multi ./resources/Vue/Vue-apps/v-app.vue ./resources/assets/styl/style2.styl ***!
-  \************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** multi ./resources/Vue/Vue-apps/v-app.vue ./resources/assets/styl/style2.styl ./resources/assets/styl/themes.styl ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\Vue\Vue-apps\v-app.vue */"./resources/Vue/Vue-apps/v-app.vue");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\assets\styl\style2.styl */"./resources/assets/styl/style2.styl");
+__webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\assets\styl\style2.styl */"./resources/assets/styl/style2.styl");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\assets\styl\themes.styl */"./resources/assets/styl/themes.styl");
 
 
 /***/ })

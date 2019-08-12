@@ -1,0 +1,63 @@
+fading-color = salmon //
+
+// THEMES -----------------------------------------------------------
+// Default style
+.notifOverlay   
+  color white
+  background rgba(0,0,0,0.7)
+  
+  .dialog
+    border 2px solid currentColor
+    border-radius 3px
+    padding 15px
+    max-width 90%
+    
+    .button-group
+      text-align center
+      
+      button
+        border none
+        box-shadow inherit
+        
+      span.separation
+        margin 0 10%
+        border 1px solid currentcolor
+        opacity 0.1
+    
+.light   
+  
+  .notifOverlay 
+    color grey
+    background rgba(255,255,255,0.7)
+
+    .dialog
+      background white
+      border none
+      box-shadow 1px 1px 5px rgba(0,0,0,0.2)
+      
+      button
+        border none
+        box-shadow inherit
+
+#from 
+  color #17a2b8
+  i
+    background #17a2b8
+#to
+  color fading-color
+  i
+    background fading-color
+#from, #to
+  line-height 2em
+  vertical-align middle
+  i
+    vertical-align middle
+    font-size 1em
+    padding-top 0.5em
+    border-radius 5px
+    color white
+    text-align center
+    display inline-block
+    width 2em
+    height 2em
+    margin-right 0.5em

@@ -215,16 +215,20 @@ input[type='radio']:checked + label:before {
 }
 .directions input[type='radio'] {
   display: none;
+/* Standard syntax */
 }
 .directions input[type='radio']:checked +button {
   background: #17a2b8;
   border-color: #17a2b8;
   color: #fff;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .directions input[type='radio']:checked +button.nextDirection {
-  -webkit-box-shadow: 0 0 10px #0ff;
-          box-shadow: 0 0 10px #0ff;
-  color: #0ff;
+  border-color: transparent;
+  -webkit-animation: chozen_same_origin 3s infinite;
+          animation: chozen_same_origin 3s infinite;
 }
 .directions label:before {
   display: none;
@@ -291,6 +295,38 @@ input[type='radio']:checked + label:before {
   background: #fa8072;
   color: #fff;
 }
+@-webkit-keyframes chozen_same_origin {
+  50% {
+    background: #fa8072;
+  }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  75% {
+    background: #fa8072;
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+}
+@keyframes chozen_same_origin {
+  50% {
+    background: #fa8072;
+  }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  75% {
+    background: #fa8072;
+  }
+  100% {
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+}
 textarea {
   width: 100%;
 }
@@ -336,72 +372,4 @@ textarea {
 #onHalfScreenLeft .notifOverlay {
   width: 50%;
   right: unset;
-}
-.notifOverlay {
-  color: #fff;
-  background: rgba(0,0,0,0.7);
-}
-.notifOverlay .dialog {
-  border: 2px solid currentColor;
-  border-radius: 3px;
-  padding: 15px;
-  max-width: 90%;
-}
-.notifOverlay .dialog .button-group {
-  text-align: center;
-}
-.notifOverlay .dialog .button-group button {
-  border: none;
-  -webkit-box-shadow: inherit;
-          box-shadow: inherit;
-}
-.notifOverlay .dialog .button-group span.separation {
-  margin: 0 10%;
-  border: 1px solid currentcolor;
-  opacity: 0.1;
-}
-.light .notifOverlay {
-  color: #808080;
-  background: rgba(255,255,255,0.7);
-}
-.light .notifOverlay .dialog {
-  background: #fff;
-  border: none;
-  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-          box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-}
-.light .notifOverlay .dialog button {
-  border: none;
-  -webkit-box-shadow: inherit;
-          box-shadow: inherit;
-}
-#from {
-  color: #17a2b8;
-}
-#from i {
-  background: #17a2b8;
-}
-#to {
-  color: #fa8072;
-}
-#to i {
-  background: #fa8072;
-}
-#from,
-#to {
-  line-height: 2em;
-  vertical-align: middle;
-}
-#from i,
-#to i {
-  vertical-align: middle;
-  font-size: 1em;
-  padding-top: 0.5em;
-  border-radius: 5px;
-  color: #fff;
-  text-align: center;
-  display: inline-block;
-  width: 2em;
-  height: 2em;
-  margin-right: 0.5em;
 }

@@ -28,9 +28,15 @@ if(process.env.NODE_ENV != 'production'){
             require('rupture')()
         ]
     })
+    .stylus('resources/assets/styl/themes.styl',css,{
+        use: [
+            require('rupture')()
+        ]
+    })
 
     // then we copy result to the dist folder not minified 
     .copy(css+'/style2.css', '../dev/css/style.css')
+    .copy(css+'/themes.css', '../dev/css/themes.css')
 
 
     // PostCss (demo only)
@@ -79,6 +85,8 @@ else{
             '../dist/js/notif_engine.min.js'
         )
         .styles('public/assets/css/style2.css', '../dist/css/style.min.css')
+        .styles('public/assets/css/themes.css', '../dist/css/themes.min.css')
+
 
 
         // PostCss (demo only)

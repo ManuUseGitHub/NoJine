@@ -20,6 +20,7 @@ limitations under the License.
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="../public/assets/css/style2.css">
+    <link rel="stylesheet" href="../public/assets/css/themes.css">
     <link rel="shortcut icon" type="image/png" href="images/logo.svg.png"/>
 </head>
 
