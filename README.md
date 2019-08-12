@@ -12,36 +12,39 @@ Here is an exemple inspired from the demo showcase.js in demo/public/assets/js. 
 set a string mess
 
 ```Javascript
-  // ... variables
   
   var options = {
-                mode: 'focussed',
-                from: 'top right',
-                type: 'opposite',
-                target: 'div-covering-everything',
-                message: $("#inpMessage").val(), // can be 'Y R th BST!',
-                description: 'lorem ipsum and even html if you want',
-            
-                after: function() {
-                    // TODO: do something (here we decide to void the input containing the message)
-                    $("#inpMessage").val("");
-                },
-                actions: [
-                    {
-                        label: "ok",
-                        action: function() {
-                            NoJine.unNotify();
-                        }
-                    },
-                    {
-                        label: "alert",
-                        action: function() {
-                            alert("hey !");
-                        }
-                    }
-                ]
-            };
+      mode: 'focussed',
+      from: 'top right',
+      type: 'opposite',
+      target: 'div-covering-everything',
+      message: $("#inpMessage").val(), // can be 'Y R th BST!',
+      description: 'lorem ipsum and even html if you want',
 
-            NoJine.init(options);
-            NoJine.notify();
+      after: function() {
+          // TODO: do something (here we decide to void the input containing the message)
+          $("#inpMessage").val("");
+      },
+      
+      // for every occurence, define a label to display and an action (do not forget to use unNotify to close the notifier)
+      // exemples :
+      
+      actions: [
+          {
+              label: "ok",
+              action: function() {
+                  NoJine.unNotify();
+              }
+          },
+          {
+              label: "alert",
+              action: function() {
+                  alert("hey !");
+              }
+          }
+      ]
+  };
+
+  NoJine.init(options);
+  NoJine.notify();
 ```
