@@ -462,8 +462,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\maze500\Documents\projet\git\NoJine\demo\resources\Vue\Vue-apps\v-app.vue */"./resources/Vue/Vue-apps/v-app.vue");
-module.exports = __webpack_require__(/*! C:\Users\maze500\Documents\projet\git\NoJine\demo\resources\assets\styl\style2.styl */"./resources/assets/styl/style2.styl");
+__webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\Vue\Vue-apps\v-app.vue */"./resources/Vue/Vue-apps/v-app.vue");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\NoJine\demo\resources\assets\styl\style2.styl */"./resources/assets/styl/style2.styl");
 
 
 /***/ })

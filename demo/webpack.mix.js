@@ -9,7 +9,7 @@ const css = 'public/assets/css';
 if(process.env.NODE_ENV != 'production'){
     mix
     // auto reloading of the page
-    .browserSync('localhost/mixouterlaravel')
+    .browserSync('localhost/NoJine')
 
 
     /*____________________________
