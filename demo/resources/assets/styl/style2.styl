@@ -24,6 +24,9 @@ body > .displayed .notifOverlay
   
 .dialog
   
+    width 90%
+    max-width 400px
+  
     &.from-top
       top 0
       transform translate(-50%, -100%)
@@ -47,8 +50,15 @@ body > .displayed .notifOverlay
       background none
       color inherit
       
-    &.simple 
-      
+    .message
+      .fa
+        &:before 
+          content "."
+          color transparent
+        &:after 
+          content attr(data-icon)
+
+    &.simple       
       .message
         margin-left 2em
         

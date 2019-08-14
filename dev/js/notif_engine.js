@@ -1,7 +1,9 @@
 var NoJine = function() {
     if (typeof $ !== "undefined" || typeof jQuery !== "undefined") {
+        var self = null;
         class Nojine {
             constructor() {
+                self = this;
                 this.defaultMessage = "Hello world !";
                 this.message = "";
                 this.afterNotification = null;
@@ -19,33 +21,36 @@ var NoJine = function() {
                 this.composeDialog(options);
             }
 
+            setDefaultMessage(message){
+                this.defaultMessage = message;
+            }
+
             /*
               Triggers the notification animation
             */
             unNotify() {
                 var duration, durationSec;
-                var athis = this;
 
-                $("#" + athis.target).addClass("passing");
+                $("#" + self.target).addClass("passing");
 
                 // get the duration regarding the
                 // CSS to adapt to the fade out
-                duration = $("#" + athis.target + " .dialog").css(
+                duration = $("#" + self.target + " .dialog").css(
                     "transition-duration"
                 );
                 durationSec = /^(.*)s$/.exec(duration)[1];
 
                 setTimeout(function() {
-                    $("#" + athis.target).removeClass("revealed");
+                    $("#" + self.target).removeClass("revealed");
 
                     setTimeout(function() {
-                        $("#" + athis.target).removeClass("displayed");
-                        $("#" + athis.target).removeClass("passing");
+                        $("#" + self.target).removeClass("displayed");
+                        $("#" + self.target).removeClass("passing");
 
-                        $("#" + athis.target).empty();
+                        $("#" + self.target).empty();
 
-                        if (athis.after != null) {
-                            athis.after();
+                        if (self.after != null) {
+                            self.after();
                         }
                     }, 500);
                 }, durationSec * 1000);
@@ -53,24 +58,27 @@ var NoJine = function() {
 
             notify() {
                 var duration, durationSec;
-                var athis = this;
 
                 // wait a bit of time then display
                 setTimeout(function() {
-                    $("#" + athis.target).addClass("displayed");
-                    $("#" + athis.target).addClass("revealed");
+                    $("#" + self.target).addClass("displayed");
+                    $("#" + self.target).addClass("revealed");
 
                     // get the duration regarding the
                     // CSS to adapt to the fade out
-                    duration = $("#" + athis.target + " .dialog").css(
+                    duration = $("#" + self.target + " .dialog").css(
                         "transition-duration"
                     );
                     durationSec = /^(.*)s$/.exec(duration)[1];
 
-                    if (athis.mode == "passing") {
+                    if (self.mode == "passing") {
+
+                        // multiplier to let enough time to q regular reader to finish the reading
+                        var readingTime = Math.ceil(self.message.length/15);
+
                         setTimeout(function() {
-                            athis.unNotify();
-                        }, durationSec * 1000);
+                            self.unNotify();
+                        }, durationSec * 1000 * readingTime);
                     }
                 }, 50);
             }
@@ -95,8 +103,7 @@ var NoJine = function() {
                 }
                 if (options.actions) {
                     var i = 0;
-                    var athis = this;
-                    var dialogSelector = "#" + athis.target + " .dialog";
+                    var dialogSelector = "#" + self.target + " .dialog";
                     var buttonGroupSelector = dialogSelector + " .button-group";
 
                     $(dialogSelector).append("<br><div class='button-group'>");
@@ -120,7 +127,6 @@ var NoJine = function() {
                 dialog.attr("class", "dialog" + this.getDirectionclasses());
                 dialog.append('<h2 class="message"/>');
 
-                var athis = this;
                 switch (this.mode) {
                     case "modal":
                         this.onModal(dialog);
@@ -130,8 +136,8 @@ var NoJine = function() {
                         dialog.append(
                             '<div class="exitButton"><i class="fas fa-times"></i></div>'
                         );
-                        $("#" + athis.target + " .exitButton").click(function() {
-                            athis.unNotify();
+                        $("#" + self.target + " .exitButton").click(function() {
+                            self.unNotify();
                         });
                         break;
                 }
@@ -156,15 +162,17 @@ var NoJine = function() {
                 // if the custom message is not set
                 if (message == "") {
                     this.message = this.defaultMessage;
+                }
 
-                    // display the custom message
-                } else {
+                // display the custom message
+                else {
                     this.message = message;
                 }
 
                 // replace the text of the element
                 // displaying the message
-                $("#" + this.target + " .message").text(this.message);
+                var targetMessage = $("#" + this.target + " .message");
+                targetMessage.text(this.message);
             }
         }
         return new Nojine();
